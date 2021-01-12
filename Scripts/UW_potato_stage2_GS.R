@@ -1,5 +1,5 @@
 rm(list =ls())
-setwd("C:/Users/ANeil/Google Drive/UW_Madison/AlphaSimR/UW Potato simulation/UW_potato_trial/GS_parents/Output")
+setwd("../Datasets")
 
 library(AlphaSimR)
 library(tibble)
