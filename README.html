@@ -399,35 +399,46 @@ We also track these parameters for each year.</p>
 <li><strong>Variance</strong>: Genetic variance of population at Stage1.</li>
 <li><strong>Parents replaced</strong>: Number of parents replaced in parent pool every cycle.</li>
 </ul>
-<p>The burnin is iterated for 5 times and burnin datasets are saved in the <strong>&quot;“./Datasets”&quot;</strong> folder named as <strong>“BURNIN_PP(1-5).RData”</strong></p>
+<p>The burnin is iterated for 5 times and burnin datasets are saved in the <strong>“./Datasets”</strong> folder named as <strong>“BURNIN_PP(1-5).RData”</strong></p>
 </div>
 <div id="step-2-different-parent-recycling-scenarios" class="section level3">
 <h3>Step 2: Different parent recycling scenarios</h3>
 <p>After the burnin phase that runs for 20 years, parent recycling scenarios are implemented for additional 20 years and above mentioned parameters are tracked.</p>
 <div id="baseline-model" class="section level4">
 <h4>Baseline model</h4>
-<p>This model keeps running the baseline model (parent selection via phenotypic selection at Stage4) for additional 20 years. This is run by script <code>UW_potato_baseline_model.R</code>. The script saves output as .RDS files for each iteration named as <strong>“Stage4_sel_(1-5).rds”</strong> in the **&quot;“./Datasets”&quot;* directory.</p>
+<p>This model keeps running the baseline model (parent selection via phenotypic selection at Stage4) for additional 20 years. This is run by script <code>UW_potato_baseline_model.R</code>. The script saves output as .RDS files for each iteration named as <strong>“Stage4_sel_(1-5).rds”</strong> in the <strong>“./Datasets”</strong> directory.</p>
 </div>
 <div id="stage3-selection" class="section level4">
 <h4>Stage3 selection</h4>
-<p>In this model, parents are selected at Stage3 via phenotypic selection instead of Stage4. This model is run by script <code>UW_potato_stage3_selection.R</code>. The script saves output as .RDS files for each iteration named as <strong>“Stage3_sel_(1-5).rds”</strong> in the **&quot;“./Datasets”&quot;* directory.</p>
+<p>In this model, parents are selected at Stage3 via phenotypic selection instead of Stage4. This model is run by script <code>UW_potato_stage3_selection.R</code>. The script saves output as .RDS files for each iteration named as <strong>“Stage3_sel_(1-5).rds”</strong> in the **“./Datasets”* directory.</p>
 </div>
 <div id="stage2-selection" class="section level4">
 <h4>Stage2 selection</h4>
-<p>In this model, parents are selected at Stage2 via phenotypic selection instead of Stage4. This model is run by script <code>UW_potato_stage2_selection.R</code>. The script saves output as .RDS files for each iteration named as <strong>“Stage2_sel_(1-5).rds”</strong> in the **&quot;“./Datasets”&quot;* directory.</p>
+<p>In this model, parents are selected at Stage2 via phenotypic selection instead of Stage4. This model is run by script <code>UW_potato_stage2_selection.R</code>. The script saves output as .RDS files for each iteration named as <strong>“Stage2_sel_(1-5).rds”</strong> in the **“./Datasets”* directory.</p>
 </div>
 <div id="stage1-selection" class="section level4">
 <h4>Stage1 selection</h4>
-<p>In this model, parents are selected at Stage1 via phenotypic selection instead of Stage4. This model is run by script <code>UW_potato_stage1_selection.R</code>. The script saves output as .RDS files for each iteration named as <strong>“Stage1_sel_(1-5).rds”</strong> in the **&quot;“./Datasets”&quot;* directory.</p>
+<p>In this model, parents are selected at Stage1 via phenotypic selection instead of Stage4. This model is run by script <code>UW_potato_stage1_selection.R</code>. The script saves output as .RDS files for each iteration named as <strong>“Stage1_sel_(1-5).rds”</strong> in the **“./Datasets”* directory.</p>
 </div>
 <div id="stage3-genomic-selection" class="section level4">
 <h4>Stage3 genomic selection</h4>
-<p>In this model, parents are selected at Stage3 via genomic selection. The genomic selection model is trained on a training population that consists of individuals at stage3 from last 5 years which is saved at the burnin stage. This model is run by script <code>UW_potato_stage3_GS.R</code>. The script saves output as .RDS files for each iteration named as <strong>“Stage3_GS_(1-5).rds”</strong> in the **&quot;“./Datasets”&quot;* directory. In this model, GS accuracy is also tracked which is saved in the .RDS file.</p>
+<p>In this model, parents are selected at Stage3 via genomic selection. The genomic selection model is trained on a training population that consists of individuals at stage3 from last 5 years which is saved at the burnin stage. This model is run by script <code>UW_potato_stage3_GS.R</code>. The script saves output as .RDS files for each iteration named as <strong>“Stage3_GS_(1-5).rds”</strong> in the <strong>“./Datasets”</strong> directory. In this model, GS accuracy is also tracked which is saved in the .RDS file.</p>
 </div>
 <div id="stage2-genomic-selection" class="section level4">
 <h4>Stage2 genomic selection</h4>
-<p>In this model, parents are selected at Stage2 via genomic selection. The genomic selection model is trained on a training population that consists of individuals at stage3 from last 5 years which is saved at the burnin stage. This model is run by script <code>UW_potato_stage3_GS.R</code>. The script saves output as .RDS files for each iteration named as <strong>“Stage2_GS_(1-5).rds”</strong> in the **&quot;“./Datasets”&quot;* directory. In this model, GS accuracy is also tracked which is saved in the .RDS file.</p>
+<p>In this model, parents are selected at Stage2 via genomic selection. The genomic selection model is trained on a training population that consists of individuals at stage3 from last 5 years which is saved at the burnin stage. This model is run by script <code>UW_potato_stage2_GS.R</code>. The script saves output as .RDS files for each iteration named as <strong>“Stage2_GS_(1-5).rds”</strong> in the **“./Datasets”* directory. In this model, GS accuracy is also tracked which is saved in the .RDS file.</p>
 </div>
+</div>
+<div id="step-3-create-plots" class="section level3">
+<h3>Step 3: Create plots</h3>
+<p>The script <code>UW_potato_plot_results.R</code> access the datasets saved in <strong>“./Datasets”</strong> folder to create the following plots.</p>
+<ol style="list-style-type: decimal">
+<li><strong>Genetic.gain.stage1.pdf</strong> : This plot shows the genetic gain in different parent selection strategies measured at Stage1.</li>
+<li><strong>Genetic.gain.stage4.pdf</strong> : This plot shows the genetic gain in different parent selection strategies measured at Stage4.</li>
+<li><strong>Genetic_variance_sel.stages.pdf</strong> : This plot shows the change in relative genetic variance across 20 years of selection in different parent selection strategies.</li>
+<li><strong>Parent_replacement_parentpool.pdf</strong> : This plot shows the number of parents replaced in the parentpool. Parentpool for each cycle includes the selected parents from previous cycle and also the parents used in crossing in the cycle before that.</li>
+<li><strong>GS_accuracy_plot.pdf</strong> : This plot shows the GS accuracy tracked over the 20 years of breeding.</li>
+</ol>
 </div>
 
 
